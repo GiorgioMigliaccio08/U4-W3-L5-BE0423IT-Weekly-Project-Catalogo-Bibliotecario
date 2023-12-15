@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class CatalogoBibliotecario {
+public abstract class CatalogoBibliotecario {
     @Id
     @GeneratedValue
     private long id;
