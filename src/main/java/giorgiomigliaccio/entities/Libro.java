@@ -34,4 +34,13 @@ public class Libro extends CatalogoBibliotecario {
     public void setGenere(String genere) {
         this.genere = genere;
     }
+
+    @Override
+    public String toString() {
+        return "Libro{" +
+                "id=" + id +
+                ", autore='" + autore + '\'' +
+                ", genere='" + genere + '\'' +
+                '}';
+    }
 }
