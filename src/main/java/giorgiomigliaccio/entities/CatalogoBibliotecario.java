@@ -9,24 +9,24 @@ public class CatalogoBibliotecario {
     @Id
     @GeneratedValue
     private long id;
-    private String isbn;
+    private String codiceIsbn;
     private String titolo;
     private int annoPubblicazione;
     private int numeroPagine;
 
-    public CatalogoBibliotecario(String isbn,  String titolo, int annoPubblicazione,  int numeroPagine) {
-        this.isbn = isbn;
+    public CatalogoBibliotecario() {
+        this.codiceIsbn = codiceIsbn;
         this.titolo = titolo;
         this.annoPubblicazione= annoPubblicazione;
         this.numeroPagine= numeroPagine;
     }
 
     public String getIsbn() {
-        return isbn;
+        return codiceIsbn;
     }
 
     public void setIsbn(String isbn) {
-        this.isbn = isbn;
+        this.codiceIsbn = codiceIsbn;
     }
 
     public String getTitolo() {
@@ -57,7 +57,7 @@ public class CatalogoBibliotecario {
     public String toString() {
         return "CatalogoBibliotecario{" +
                 "id=" + id +
-                ", isbn='" + isbn + '\'' +
+                ", codiceIsbn='" + codiceIsbn + '\'' +
                 ", titolo='" + titolo + '\'' +
                 ", annoPubblicazione=" + annoPubblicazione +
                 ", numeroPagine=" + numeroPagine +
