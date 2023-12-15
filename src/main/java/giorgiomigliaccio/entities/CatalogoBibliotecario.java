@@ -17,8 +17,8 @@ public class CatalogoBibliotecario {
     public CatalogoBibliotecario(String codiceIsbn, String titolo, int annoPubblicazione, int numeroPagine) {
         this.codiceIsbn = codiceIsbn;
         this.titolo = titolo;
-        this.annoPubblicazione= annoPubblicazione;
-        this.numeroPagine= numeroPagine;
+        this.annoPubblicazione = annoPubblicazione;
+        this.numeroPagine = numeroPagine;
     }
 
     public String getIsbn() {
@@ -26,7 +26,7 @@ public class CatalogoBibliotecario {
     }
 
     public void setIsbn(String isbn) {
-        this.codiceIsbn = codiceIsbn;
+        this.codiceIsbn = isbn;  // Correzione qui
     }
 
     public String getTitolo() {

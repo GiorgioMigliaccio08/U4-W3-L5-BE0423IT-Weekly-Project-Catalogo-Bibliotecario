@@ -5,8 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.time.LocalDate;
+
 @Entity
 public class Prestito {
+
     @Id
     @GeneratedValue
     private long id;
@@ -17,16 +19,30 @@ public class Prestito {
     @ManyToOne
     private CatalogoBibliotecario elementoPrestato;
 
-    private CatalogoBibliotecario dataInizioPrestito;
+    private LocalDate dataInizioPrestito;
     private LocalDate dataRestituzionePrevista;
     private LocalDate dataRestituzioneEffettiva;
+    private String nome;
+    private String cognome;
 
-    public Prestito(Utente utente, CatalogoBibliotecario dataInizioPrestito, LocalDate dataRestituzionePrevista, LocalDate dataRestituzioneEffettiva ) {
+    public Prestito(Utente utente, CatalogoBibliotecario elementoPrestato, LocalDate dataInizioPrestito, LocalDate dataRestituzionePrevista, LocalDate dataRestituzioneEffettiva) {
         this.utente = utente;
         this.elementoPrestato = elementoPrestato;
         this.dataInizioPrestito = dataInizioPrestito;
         this.dataRestituzionePrevista = dataRestituzionePrevista;
         this.dataRestituzioneEffettiva = dataRestituzioneEffettiva;
+    }
+
+    public Prestito(Utente utenteUno, CatalogoBibliotecario elementoUno, LocalDate now, LocalDate dataRestituzionePrevista) {
+
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public Utente getUtente() {
@@ -45,11 +61,11 @@ public class Prestito {
         this.elementoPrestato = elementoPrestato;
     }
 
-    public CatalogoBibliotecario getDataInizioPrestito() {
+    public LocalDate getDataInizioPrestito() {
         return dataInizioPrestito;
     }
 
-    public void setDataInizioPrestito(CatalogoBibliotecario dataInizioPrestito) {
+    public void setDataInizioPrestito(LocalDate dataInizioPrestito) {
         this.dataInizioPrestito = dataInizioPrestito;
     }
 
@@ -79,5 +95,23 @@ public class Prestito {
                 ", dataRestituzionePrevista=" + dataRestituzionePrevista +
                 ", dataRestituzioneEffettiva=" + dataRestituzioneEffettiva +
                 '}';
+    }
+
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+
+    public String getCognome() {
+        return cognome;
+    }
+
+    public void setCognome(String cognome) {
+        this.cognome = cognome;
     }
 }

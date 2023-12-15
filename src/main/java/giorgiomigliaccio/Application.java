@@ -17,6 +17,7 @@ public class Application {
 
     private static UtenteDAO utenteDAO;
     private static PrestitoDAO prestitoDAO;
+    private static Prestito utente;
 
     public static void main(String[] args) {
        // Inizializzo l'EntityManagerFactory che fa riferimento alla classe Catalogo Bibliotecario
@@ -45,8 +46,8 @@ public class Application {
 
         Utente UtenteTre = new Utente("0003", "Martin", "Garrix", LocalDate.of(2002, 2, 6));
         utenteDAO.aggiungiUtente(UtenteTre);
-        
-        //Prestiti 
+
+        //Prestiti
         Prestito prestitoUno = new Prestito(UtenteUno, ElementoUno, LocalDate.now(), LocalDate.now().plusDays(14));
         prestitoDAO.aggiungiPrestito(prestitoUno);
 
@@ -55,6 +56,38 @@ public class Application {
 
         Prestito prestitoTre = new Prestito(UtenteTre, ElementoTre, LocalDate.now(), LocalDate.now().plusDays(14));
         prestitoDAO.aggiungiPrestito(prestitoTre);
+
+        // Rimozione di un elemento del catalogo dato un codice ISBN
+        catalogoDAO.rimuoviElementoByIsbn("123456");
+
+
+        //Ricerca per ISBN
+        String isbnCercato = "sg3-ghe";
+        CatalogoBibliotecario libroTrovato = catalogoDAO.cercaPerIsbn(isbnCercato);
+        System.out.println("Libro trovato per ISBN " + isbnCercato + ": " + libroTrovato);
+
+        // Ricerca per anno pubblicazione
+        int annoPubblicazioneCercato = 2022;
+        List<CatalogoBibliotecario> libriPerAnno = catalogoDAO.cercaPerAnnoPubblicazione(annoPubblicazioneCercato);
+        System.out.println("Libri trovati per anno di pubblicazione " + annoPubblicazioneCercato + ": " + libriPerAnno);
+
+        // Ricerca per autore
+        String autoreCercato = "AutoreLibro";
+        List<CatalogoBibliotecario> libriPerAutore = catalogoDAO.cercaPerAutore(autoreCercato);
+        System.out.println("Libri trovati per autore " + autoreCercato + ": " + libriPerAutore);
+
+        // Ricerca per titolo o parte di esso
+        String titoloCercato = "Robin";
+        List<CatalogoBibliotecario> libriPerTitolo = catalogoDAO.cercaPerTitolo(titoloCercato);
+        System.out.println("Libri trovati per titolo contenente " + titoloCercato + ": " + libriPerTitolo);
+
+        // Ricerca degli elementi attualmente in prestito dato un numero di tessera utente
+        List<Prestito> prestitiUtente = prestitoDAO.cercaPrestitiPerUtente(utente.getId());
+        System.out.println("Prestiti per l'utente " + utente.getNome() + " " + utente.getCognome() + ": " + prestitiUtente);
+
+        // Ricerca di tutti i prestiti scaduti e non ancora restituiti
+        List<Prestito> prestitiScaduti = prestitoDAO.cercaPrestitiScadutiNonRestituiti();
+        System.out.println("Prestiti scaduti e non restituiti: " + prestitiScaduti);
 
 
 
