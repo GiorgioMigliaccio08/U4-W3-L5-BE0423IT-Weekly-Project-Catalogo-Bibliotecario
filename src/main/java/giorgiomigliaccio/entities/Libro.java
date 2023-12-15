@@ -14,7 +14,7 @@ public class Libro extends CatalogoBibliotecario {
     private String genere;
 
     public Libro(String autore, String genere ) {
-        super();
+        super("hhhhh", "Robin Hood", 2022, 300);
         this.autore = autore;
         this.genere= genere;
     }

@@ -17,11 +17,11 @@ public class Prestito {
     @ManyToOne
     private CatalogoBibliotecario elementoPrestato;
 
-    private LocalDate dataInizioPrestito;
+    private CatalogoBibliotecario dataInizioPrestito;
     private LocalDate dataRestituzionePrevista;
     private LocalDate dataRestituzioneEffettiva;
 
-    public Prestito(Utente utente, CatalogoBibliotecario elementoPrestato, LocalDate dataInizioPrestito,LocalDate dataRestituzionePrevista,LocalDate dataRestituzioneEffettiva ) {
+    public Prestito(Utente utente, CatalogoBibliotecario dataInizioPrestito, LocalDate dataRestituzionePrevista, LocalDate dataRestituzioneEffettiva ) {
         this.utente = utente;
         this.elementoPrestato = elementoPrestato;
         this.dataInizioPrestito = dataInizioPrestito;
@@ -45,11 +45,11 @@ public class Prestito {
         this.elementoPrestato = elementoPrestato;
     }
 
-    public LocalDate getDataInizioPrestito() {
+    public CatalogoBibliotecario getDataInizioPrestito() {
         return dataInizioPrestito;
     }
 
-    public void setDataInizioPrestito(LocalDate dataInizioPrestito) {
+    public void setDataInizioPrestito(CatalogoBibliotecario dataInizioPrestito) {
         this.dataInizioPrestito = dataInizioPrestito;
     }
 

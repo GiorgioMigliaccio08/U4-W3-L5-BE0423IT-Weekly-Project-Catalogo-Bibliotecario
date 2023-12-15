@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public abstract class CatalogoBibliotecario {
+public class CatalogoBibliotecario {
     @Id
     @GeneratedValue
     private long id;
@@ -14,7 +14,7 @@ public abstract class CatalogoBibliotecario {
     private int annoPubblicazione;
     private int numeroPagine;
 
-    public CatalogoBibliotecario() {
+    public CatalogoBibliotecario(String codiceIsbn, String titolo, int annoPubblicazione, int numeroPagine) {
         this.codiceIsbn = codiceIsbn;
         this.titolo = titolo;
         this.annoPubblicazione= annoPubblicazione;
